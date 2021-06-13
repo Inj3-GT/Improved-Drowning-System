@@ -20,7 +20,7 @@ local function Improved_Drowning_System()
                     if (v.Improved_PlayerWater <= Improved_Drowning_System_Sec) then
                          v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 100, math.random(60, 100))
 
-                    elseif (v.Improved_PlayerWater >= Improved_Drowning_System_Sec) then
+                    else
                          Improved_IdLoop = v:StartLoopingSound( "player/heartbeat1.wav" )
 
                          v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 100, math.random(60, 100))
@@ -31,7 +31,6 @@ local function Improved_Drowning_System()
 
                               v.Improved_PlayerWater  = nil
                               v.PlayerInWaterCur = nil
-
                               v:StopLoopingSound(Improved_IdLoop)
                          end
                     end
