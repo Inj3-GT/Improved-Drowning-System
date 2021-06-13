@@ -40,7 +40,7 @@ local function Improved_Drowning_System()
                if v.Improved_PlayerWater then
                     v.PlayerInWaterCur = (v.PlayerInWaterCur or 0) + 1
 
-                    if v.PlayerInWaterCur >= Improved_Drowning_System_PreventLeave then
+                    if (v.PlayerInWaterCur >= Improved_Drowning_System_PreventLeave) then
                          v.Improved_PlayerWater  = nil
                          v.PlayerInWaterCur = nil
 
