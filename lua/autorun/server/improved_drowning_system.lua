@@ -13,7 +13,6 @@ local math = math
 
 local function ImprovedClearSound(id)
      if Improved_Sound_Sys[id] then
-
           for i = 1, Improved_Sound_Max do
                Improved_Sound_Sys[id][i]:Stop()
           end
@@ -67,7 +66,6 @@ local function Improved_Drowning_System()
                          end
                     end
                end
-
           else
                if v.Improved_PlayerWater then
                     Improved_Caching_ID = v:UserID()
