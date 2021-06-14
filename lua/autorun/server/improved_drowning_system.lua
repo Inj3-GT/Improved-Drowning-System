@@ -34,15 +34,17 @@ local function Improved_Drowning_System()
                          v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 75, 100, 1, CHAN_AUTO)
 
                     else
+                         local Improved_Caching_ID = v:UserID()
+
                          if not Improved_Sound_Sys[v:UserID()] then
-                              Improved_Sound_Sys[v:UserID()] = {}
+                              Improved_Sound_Sys[Improved_Caching_ID] = {}
 
                               for i = 1, Improved_Sound_Max do
-                                   Improved_Sound_Sys[v:UserID()][i] = i == 1 and CreateSound(v, "player/heartbeat1.wav") or i == 2 and CreateSound(v, "player/breathe1.wav")
+                                   Improved_Sound_Sys[Improved_Caching_ID][i] = i == 1 and CreateSound(v, "player/heartbeat1.wav") or i == 2 and CreateSound(v, "player/breathe1.wav")
                               end
                          else
-                              if Improved_Sound_Sys[v:UserID()][2]:IsPlaying() then
-                                   Improved_Sound_Sys[v:UserID()][2]:Stop()
+                              if Improved_Sound_Sys[Improved_Caching_ID][2]:IsPlaying() then
+                                   Improved_Sound_Sys[Improved_Caching_ID][2]:Stop()
                               end
                          end
 
@@ -51,7 +53,7 @@ local function Improved_Drowning_System()
                          end
                          v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 35, math.random(5, 20), 1, CHAN_AUTO)
 
-                         Improved_Sound_Sys[v:UserID()][1]:PlayEx(1, 100)
+                         Improved_Sound_Sys[Improved_Caching_ID][1]:PlayEx(1, 100)
                          v:SetHealth( v:Health() - Improved_Drowning_System_HealthDamge )
 
                          if (v:Health() <= 0) then
@@ -67,7 +69,7 @@ local function Improved_Drowning_System()
 
           else
                if v.Improved_PlayerWater then
-			   
+
                     if Improved_Sound_Sys[v:UserID()] then
                          Improved_Sound_Sys[v:UserID()][2]:PlayEx(1, 100)
                     end
