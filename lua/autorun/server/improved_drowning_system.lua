@@ -41,10 +41,14 @@ local function Improved_Drowning_System()
                               end
                          end
 
-                         Improved_Sound_Sys[v:UserID()][1]:PlayEx(1, 100)
-                         v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 50, math.random(5, 20), 1, CHAN_AUTO)
+                         if v.PlayerInWaterCur and v.PlayerInWaterCur > 0 then
+                              v.PlayerInWaterCur = 0
+                         end
+                         v:EmitSound("player/pl_drown" ..math.random(1, 3).. ".wav", 35, math.random(5, 20), 1, CHAN_AUTO)
 
+                         Improved_Sound_Sys[v:UserID()][1]:PlayEx(1, 100)
                          v:SetHealth( v:Health() - Improved_Drowning_System_HealthDamge )
+
                          if (v:Health() <= 0) then
                               v:Kill()
 
@@ -58,7 +62,6 @@ local function Improved_Drowning_System()
 
           else
                if v.Improved_PlayerWater then
-
                     if Improved_Sound_Sys[v:UserID()] then
                          Improved_Sound_Sys[v:UserID()][2]:PlayEx(1, 100)
                     end
