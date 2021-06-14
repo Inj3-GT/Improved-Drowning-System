@@ -13,6 +13,7 @@ local math = math
 
 local function ImprovedClearSound(ply)
      if Improved_Sound_Sys[ply:UserID()] then
+	 
           for i = 1, Improved_Sound_Max do
                Improved_Sound_Sys[ply:UserID()][i]:Stop()
           end
@@ -39,6 +40,10 @@ local function Improved_Drowning_System()
                               for i = 1, Improved_Sound_Max do
                                    Improved_Sound_Sys[v:UserID()][i] = i == 1 and CreateSound(v, "player/heartbeat1.wav") or i == 2 and CreateSound(v, "player/breathe1.wav")
                               end
+                         else
+                              if Improved_Sound_Sys[v:UserID()][2]:IsPlaying() then
+                                   Improved_Sound_Sys[v:UserID()][2]:Stop()
+                              end
                          end
 
                          if v.PlayerInWaterCur and v.PlayerInWaterCur > 0 then
@@ -62,6 +67,7 @@ local function Improved_Drowning_System()
 
           else
                if v.Improved_PlayerWater then
+			   
                     if Improved_Sound_Sys[v:UserID()] then
                          Improved_Sound_Sys[v:UserID()][2]:PlayEx(1, 100)
                     end
