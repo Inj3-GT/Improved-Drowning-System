@@ -3,9 +3,9 @@
 --- Script By Inj3
 ---- https://steamcommunity.com/id/Inj3/
 
-local improved_drowning_system_sec = 7 --- Délai avant la noyade.
-local improved_drowning_system_healthdamage = 7 --- Dégât lors de la noyade (par seconde).
-local improved_drowning_system_preventleave = 5 --- Si le joueur sort de l'eau, le temps en secondes avant que le délai ("improved_drowning_system_sec") ne soit réinitialisé, si le temps n'est pas réinitialisé, le joueur reprendra instantanément des dégâts lorsqu'il replongera dans l'eau (corps totalement immergé).
+local improved_drowning_system_sec = 7 --- Time to drown / Délai avant la noyade
+local improved_drowning_system_healthdamage = 7 --- Drowning damage (per second) / Dégât lors de la noyade (par seconde)
+local improved_drowning_system_preventleave = 5 --- If the player gets out of the water, the time in seconds before the delay ("improved_drowning_system_sec") is reset, if the time is not reset, the player will instantly take damage again when he/she gets back into the water (fully submerged body)/Si le joueur sort de l'eau, le temps en secondes avant que le délai ("improved_drowning_system_sec") ne soit réinitialisé, si le temps n'est pas réinitialisé, le joueur reprendra instantanément des dégâts lorsqu'il replongera dans l'eau (corps totalement immergé).
 
 do
      local improved_sound_sys = improved_sound_sys or {}
