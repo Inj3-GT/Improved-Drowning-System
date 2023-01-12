@@ -8,7 +8,7 @@ local ipr_drowning_config = {
     sec = 7, --- Time to drown / Délai avant la noyade
     health_damage = 7, --- Drowning damage (per second) / Dégât lors de la noyade (par seconde)
     prevent_leave = 5, --- If the player gets out of the water, the time in seconds before the delay ("improved_drowning_sys_sec") is reset, if the time is not reset, the player will instantly take damage again when he/she gets back into the water (fully submerged body)/Si le joueur sort de l'eau, le temps en secondes avant que le délai ("improved_drowning_sys_sec") ne soit réinitialisé, si le temps n'est pas réinitialisé, le joueur reprendra instantanément des dégâts lorsqu'il replongera dans l'eau (corps totalement immergé).
-    job_blacklist = { --- Jobs will not be affected by drowning / Les jobs ne seront pas affectés par la noyade.
+    job_blacklist = { --- Jobs will not be affected by drowning / Les jobs qui ne seront pas affectés par la noyade.
         ["Chef Pizza"] = true,
     },
 }
@@ -93,4 +93,5 @@ local function ipr_drowning_sys()
         end
     end
 end
+
 timer.Create("ImprovedDrowning_Sys", 1, 0, ipr_drowning_sys)
