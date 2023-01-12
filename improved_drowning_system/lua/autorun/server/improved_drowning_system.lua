@@ -62,9 +62,10 @@ local function ipr_drowning_sys()
                     end
 
                     ipr_sound_sys[ipr_cache_id][1]:PlayEx(1, 100)
-                    v:SetHealth(v:Health() - ipr_drowning_config.health_damage)
+                    local ipr_health = v:Health()
+                    v:SetHealth(ipr_health - ipr_drowning_config.health_damage)
 
-                    if (v:Health() <= 0) then
+                    if (ipr_health <= 0) then
                         v:Kill()
 
                         v.ipr_player_water  = nil
